@@ -10,16 +10,16 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Set ssid
-sed -i "s/OpenWrt/LYNX/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/OpenWrt/ELSANWRT/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # Set default password
 sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 
 # Set timezone
-sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
+sed -i -e "s/CST-8/WIB-9/g" -e "s/Shanghai/Jayapura/g" package/emortal/default-settings/files/99-default-settings-chinese
 
 # Set hostname
-sed -i "s/ImmortalWrt/LYNX/g" package/base-files/files/bin/config_generate
+sed -i "s/ImmortalWrt/ELSANWRT/g" package/base-files/files/bin/config_generate
 
 # Set passwd
 sed -i "s/root::0:0:99999:7:::/root:"'$'"1"'$'"pSFNodTy"'$'"ej92Jju6QPD9AIAuelgnr.:18993:0:99999:7:::/g" package/base-files/files/etc/shadow
@@ -30,7 +30,7 @@ sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
 
 # Set banner
 rm -rf ./package/emortal/default-settings/files/openwrt_banner
-svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/rootfs/etc/banner package/emortal/default-settings/files/openwrt_banner
+svn export https://github.com/elsangithub/immortalwrt-1/blob/main/banner package/emortal/default-settings/files/openwrt_banner
 
 # Set shell zsh
 sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
