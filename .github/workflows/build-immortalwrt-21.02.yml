@@ -120,7 +120,7 @@ jobs:
         tag: ImmortalWrt-21.02-${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
         body: |
           This is ImmortalWrt firmware for Amlogic ARMv8
           * Firmware information
